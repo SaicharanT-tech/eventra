@@ -1,0 +1,225 @@
+:root {
+  --primary-color: #0f4c81;
+  --primary-light: #2c75b8;
+  --secondary-color: #f1f5f9;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --bg-color: #f8fafc;
+  --white: #ffffff;
+  --border-color: #e2e8f0;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 1rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.sidebar-link:hover, .sidebar-link.active {
+  background-color: rgba(255,255,255,0.1);
+  color: var(--white);
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  height: 60px;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.page-container {
+  padding: 2rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Cards */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border: 1px solid var(--border-color);
+}
+
+.card h3 {
+  color: var(--text-light);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Tables */
+.table-container {
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  margin-top: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.status-Pending, .status-Running { background-color: var(--warning); color: #fff; }
+.status-Approved, .status-Completed { background-color: var(--success); color: #fff; }
+.status-Rejected { background-color: var(--danger); color: #fff; }
+
+.status-HOD { background-color: #3b82f6; color: #fff; }
+.status-Dean { background-color: #8b5cf6; color: #fff; }
+
+/* Forms */
+.form-container {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--primary-light);
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.9; }
+
+.btn-primary { background-color: var(--primary-color); color: var(--white); }
+.btn-success { background-color: var(--success); color: var(--white); }
+.btn-danger { background-color: var(--danger); color: var(--white); }
+.btn-outline { background-color: transparent; border: 1px solid var(--border-color); color: var(--text-dark); }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-content {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 500px;
+}

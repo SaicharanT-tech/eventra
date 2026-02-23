@@ -1,0 +1,26 @@
+[dotenv@17.3.1] injecting env (3) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Server running on port 5000
+Local MongoDB not found. Launching in-memory MongoDB for demo...
+In-memory MongoDB connected successfully
+Seeding in-memory database with demo data...
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Error seeding database: MongooseError: Can't call `openUri()` on an active connection with different connection strings. Make sure you aren't calling `mongoose.connect()` multiple times. See: https://mongoosejs.com/docs/connections.html#multiple_connections
+    at NativeConnection.createClient (C:\Users\Sai Charan\Downloads\new project\server\node_modules\mongoose\lib\drivers\node-mongodb-native\connection.js:244:13)
+    at NativeConnection.openUri (C:\Users\Sai Charan\Downloads\new project\server\node_modules\mongoose\lib\connection.js:1075:34)
+    at Mongoose.connect (C:\Users\Sai Charan\Downloads\new project\server\node_modules\mongoose\lib\mongoose.js:471:15)
+    at seedDatabase (C:\Users\Sai Charan\Downloads\new project\server\seed.js:36:24)
+    at connectToDatabase (C:\Users\Sai Charan\Downloads\new project\server\server.js:34:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+MongooseError: Can't call `openUri()` on an active connection with different connection strings. Make sure you aren't calling `mongoose.connect()` multiple times. See: https://mongoosejs.com/docs/connections.html#multiple_connections
+    at NativeConnection.createClient (C:\Users\Sai Charan\Downloads\new project\server\node_modules\mongoose\lib\drivers\node-mongodb-native\connection.js:244:13)
+    at NativeConnection.openUri (C:\Users\Sai Charan\Downloads\new project\server\node_modules\mongoose\lib\connection.js:1075:34)
+    at Mongoose.connect (C:\Users\Sai Charan\Downloads\new project\server\node_modules\mongoose\lib\mongoose.js:471:15)
+    at seedDatabase (C:\Users\Sai Charan\Downloads\new project\server\seed.js:36:24)
+    at connectToDatabase (C:\Users\Sai Charan\Downloads\new project\server\server.js:34:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+Node.js v24.13.1
