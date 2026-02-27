@@ -41,6 +41,21 @@ router.post('/resources', roleMiddleware(['Admin/ITC']), async (req, res) => {
     }
 });
 
+// @route   PUT /api/resources/:id
+router.put('/resources/:id', roleMiddleware(['Admin/ITC']), async (req, res) => {
+    try {
+        const resource = await Resource.findByIdAndUpdate(
+            req.params.id,
+            { quantityAvailable: req.body.quantityAvailable },
+            { new: true }
+        );
+        if (!resource) return res.status(404).json({ message: 'Resource not found' });
+        res.json(resource);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
 // @route   GET /api/resources
 router.get('/resources', async (req, res) => {
     try {

@@ -1,0 +1,9 @@
+﻿src/App.jsx
+src/components/DashboardLayout.jsx
+src/context/AuthContext.jsx
+src/main.jsx
+src/pages/AdminDashboard.jsx
+src/pages/ApproverDashboard.jsx
+src/pages/CoordinatorDashboard.jsx
+src/pages/CreateEvent.jsx
+src/pages/Login.jsx

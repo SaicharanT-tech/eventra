@@ -91,7 +91,7 @@ export default function CreateEvent() {
                         </div>
                         <div className="form-group">
                             <label>Department</label>
-                            <input type="text" name="department" value={formData.department} readOnly style={{ backgroundColor: '#f1f5f9', color: 'var(--text-light)' }} />
+                            <input type="text" name="department" value={formData.department} onChange={handleChange} required />
                         </div>
                         <div className="form-group">
                             <label>Date</label>

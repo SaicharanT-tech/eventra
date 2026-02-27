@@ -145,7 +145,26 @@ export default function AdminDashboard() {
                                     <tr key={r._id}>
                                         <td><strong>{r.name}</strong></td>
                                         <td style={{ textTransform: 'capitalize' }}>{r.type}</td>
-                                        <td><span className="status-badge" style={{ background: '#cbd5e1', color: '#333' }}>{r.quantityAvailable}</span></td>
+                                        <td>
+                                            <input
+                                                type="number"
+                                                defaultValue={r.quantityAvailable}
+                                                min="0"
+                                                style={{ width: '80px', padding: '0.25rem' }}
+                                                onBlur={async (e) => {
+                                                    const newAmt = parseInt(e.target.value);
+                                                    if (newAmt !== r.quantityAvailable) {
+                                                        try {
+                                                            await api.put(`/resources/${r._id}`, { quantityAvailable: newAmt });
+                                                            // update local state smoothly
+                                                            setResources(prev => prev.map(res => res._id === r._id ? { ...res, quantityAvailable: newAmt } : res));
+                                                        } catch (err) {
+                                                            setError('Failed to update resource quantity');
+                                                        }
+                                                    }
+                                                }}
+                                            />
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
